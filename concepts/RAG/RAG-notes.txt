@@ -1,0 +1,61 @@
+Problem statement:
+    Lets say my company has over 500GB of read me files/documents. Now, we would want to ask questions about these documents using Assistants like ChatGpt etc., 
+
+How to get it done?
+    2 Approaches:
+        1. Create an algorithm to get the document using title and its relevance (Preprocess by summary)
+            Downside:
+                * Everytime you query something, it has to go through 500GB of content which is not efficient
+
+        2. Summarise all the documents into searchable small chunks like keywords / relevance (Search by keyword/relevance)
+                * this may go out of context sometimes 
+        
+        Alternative approach:
+            - Combine both of the above approaches and get it done. 
+
+Information:
+    LLMs take input in 01 i.e.., binary format (word embeddding)
+
+Implementation:
+    * The 500GB files data will be stored semantically (meanings of the words) called "Vector Embeddding" into a "Vector Database" as "vectors"
+    * Once we do this, we can retrieve these faster by splitting these into chunks by the vector database so that AI assistants can fit them into their context window and generate output from it. 
+        This method is called RAG "Retrieval Augmented Generation"
+
+        e.g., Lets say AI assistants was asked "Can you tell me about last year's service agreement with Kodekloud?"
+            This will be done in 3 different steps:
+                1. Retrieval
+                2. Augmented
+                3. Generation
+
+        1. Retrieval:
+            - Take the prompt, cut it into different chunks and perform "word embedding" (i.e., word embedding for the question is generated)
+            - The word embeddding of the question is compared against the document's word embedding from the vector db. This type of search is called "Semantic Search"
+                The meaning and the context of the query is used to search 
+        
+        2. Augmentation:
+            - The data retrieved is injected into the prompt at runtime. This process is called Augmentation.
+                Why is this necessary?
+                    * AI Assistants are relying on data that is provided in training phase to them which is static knowledge that can becomes outdated really fast.   
+                    * This pretrained data becomes irrelevant in no time.  
+                    * Instead our goal here is to have the AI assistant have upto date information all the time using Vector database so that Inruntime we can provide necessary information to the assistant to answer to the prompt
+        
+        3. Generation:
+            - This is the final step which is for AI assistant to generate the relevant data retrieved from the Vector database and present it
+
+RAG:
+    RAG is an very powerful system that can instantly improve its depth of knowledge beyond its training. Just like any other system, learning how to calibrate the RAG is an acquired skill that needs to be learned 
+        Important step is knowing how to do the following:
+        * Chunking strategy determines the efficacy of the RAG system
+            - knowing how to chunk my data before storing in vector db is critical and is called Chunking strategy. 
+            - Determines the size and overlap of each chunk
+        * Embeddding strategy
+            - decides which embedding model to use and to convert our documents into vector embeddings  
+        * Retrieval strategy
+            - Control the threshold of how similar the words need to be. 
+
+
+RAG system will be different for each and every usecase because the type content that is fed will be changed. e.g., Legal documents and conversation text documents have different RAG system Implementations.  
+
+
+Resources:
+    - https://youtu.be/_HQ2H_0Ayy0?si=s8QSml-vWPagwz7A
