@@ -1,0 +1,26 @@
+Commands:
+    * Environment creation: 
+        Conda can create virtual environments with seperate python version along with basic python packages
+            command: conda create -p venv python==3.12
+                     * venv is the environment name here
+                     
+    * Environment activation using conda:
+        Go to the directory where conda's venv is present
+            command: conda activate venv 
+                        or 
+                     conda activate <absolute path of the venv directory> 
+
+    * Packages Installation (should be performed only after environment activation using conda activate)
+        In addition to this, we can also write requirements.txt file by specifying the python packages in it. Install them using the command
+            command: pip install -r requirements.txt
+    
+
+    * Environment deactivation using conda:
+        Go to the directory where conda's venv is present
+            command: conda deactivate 
+
+            e.g.,   ai-temp $ conda activate venv/
+                    (/private/tmp/ai-temp/venv) ai-temp $ conda deactivate
+                    ai-temp $ 
+
+    
