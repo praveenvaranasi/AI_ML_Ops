@@ -1,0 +1,87 @@
+(base) ai-temp $ conda create -p venv python==3.12
+
+            2 channel Terms of Service accepted
+            Channels:
+            - defaults
+            Platform: osx-arm64
+            Collecting package metadata (repodata.json): done
+            Solving environment: done
+
+
+            ==> WARNING: A newer version of conda exists. <==
+                current version: 25.5.1
+                latest version: 25.7.0
+
+            Please update conda by running
+
+                $ conda update -n base -c defaults conda
+
+
+            ## Package Plan ##
+
+            environment location: /private/tmp/ai-temp/venv
+
+            added / updated specs:
+                - python==3.12
+
+
+            The following packages will be downloaded:
+
+                package                    |            build
+                ---------------------------|-----------------
+                libcxx-19.1.7              |       hb09ecce_3         315 KB
+                ncurses-6.5                |       hee39554_0         886 KB
+                python-3.12.0              |       h99e199e_0        14.0 MB
+                readline-8.3               |       h0b18652_0         464 KB
+                setuptools-78.1.1          |  py312hca03da5_0         2.2 MB
+                sqlite-3.50.2              |       h79febb2_1         1.0 MB
+                tk-8.6.15                  |       hcd8a7d5_0         3.3 MB
+                wheel-0.45.1               |  py312hca03da5_0         148 KB
+                ------------------------------------------------------------
+                                                    Total:        22.3 MB
+
+            The following NEW packages will be INSTALLED:
+
+            bzip2              pkgs/main/osx-arm64::bzip2-1.0.8-h80987f9_6 
+            ca-certificates    pkgs/main/osx-arm64::ca-certificates-2025.7.15-hca03da5_0 
+            expat              pkgs/main/osx-arm64::expat-2.7.1-h313beb8_0 
+            libcxx             pkgs/main/osx-arm64::libcxx-19.1.7-hb09ecce_3 
+            libffi             pkgs/main/osx-arm64::libffi-3.4.4-hca03da5_1 
+            ncurses            pkgs/main/osx-arm64::ncurses-6.5-hee39554_0 
+            openssl            pkgs/main/osx-arm64::openssl-3.0.17-h4ee41c1_0 
+            pip                pkgs/main/noarch::pip-25.1-pyhc872135_2 
+            python             pkgs/main/osx-arm64::python-3.12.0-h99e199e_0 
+            readline           pkgs/main/osx-arm64::readline-8.3-h0b18652_0 
+            setuptools         pkgs/main/osx-arm64::setuptools-78.1.1-py312hca03da5_0 
+            sqlite             pkgs/main/osx-arm64::sqlite-3.50.2-h79febb2_1 
+            tk                 pkgs/main/osx-arm64::tk-8.6.15-hcd8a7d5_0 
+            tzdata             pkgs/main/noarch::tzdata-2025b-h04d1e81_0 
+            wheel              pkgs/main/osx-arm64::wheel-0.45.1-py312hca03da5_0 
+            xz                 pkgs/main/osx-arm64::xz-5.6.4-h80987f9_1 
+            zlib               pkgs/main/osx-arm64::zlib-1.2.13-h18a0788_1 
+
+
+            Proceed ([y]/n)? y
+
+
+            Downloading and Extracting Packages:
+            python-3.12.0        | 14.0 MB   |                                                                                                                                          |   0%Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /pkgs/main/osx-arm64/python-3.12.0-h99e199e_0.conda########################################################################################################################### | 100% 
+            sqlite-3.50.2        | 1.0 MB    | #############################################################################################4                                           |  69% 
+                                                                                                                                                                                            
+            Preparing transaction: done                                                                                                                                                        
+            Verifying transaction: done                                                                                                                                                        
+            Executing transaction: done                                                                                                                                                        
+            #                                                                                                                                                                                  
+            # To activate this environment, use                                                                                                                                                
+            #                                                                                                                                                                                  
+            #     $ conda activate /private/tmp/ai-temp/venv                                                                                                                                   
+            #
+            # To deactivate an active environment, use
+            #
+            #     $ conda deactivate
+
+(base) ai-temp $ ls -al 
+            total 0
+            drwxr-xr-x  3 praveenvaranasi wheel  96 Aug 24 12:04 .
+            drwxrwxrwt  8 root            wheel 256 Aug 24 12:01 ..
+            drwxr-xr-x 10 praveenvaranasi wheel 320 Aug 24 12:04 venv

@@ -1,0 +1,14 @@
+Commands:
+    * Project creation:
+        uv init <project-name>
+        - we can also mention the python version in the command 
+    
+    * Vurtual environment creation:
+        cd <uv-project-folder>
+        uv venv 
+
+    * python packages installation:
+        uv add <python package> 
+
+        This installs the packages and updates the packages and their versions so that we need to write the requirements.txt again to note down what all we have installed.
+        
