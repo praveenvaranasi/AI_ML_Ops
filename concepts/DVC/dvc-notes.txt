@@ -1,0 +1,88 @@
+                                                                        DVC
+
+Index:
+    1. Installation of dvc
+    2. 
+
+1. Installation of dvc 
+    Ref doc: https://doc.dvc.org/install
+
+
+2.  Data set is stored in the S3 Bucket
+    Data set metadata is stored in the git repo
+        - Commit .dvc/config directory to the git repository (This tells us regarding the remote of the dvc)
+        - Commit <file>.csv.dvc file to the git repo. (This contains the checksum of the actual dataset i.e., <filename>.csv)
+
+    Committing process:
+        - Added .csv pattern into the .gitignore 
+            **/*.csv
+        - Added 'concepts/DVC/dataset/diabetes.csv' into the repo
+        - Ran dvc init 
+            lanosrep-ai-ml-ops $ dvc init
+                    Initialized DVC repository.
+
+                    You can now commit the changes to git.
+
+                    +---------------------------------------------------------------------+
+                    |                                                                     |
+                    |        DVC has enabled anonymous aggregate usage analytics.         |
+                    |     Read the analytics documentation (and how to opt-out) here:     |
+                    |             <https://dvc.org/doc/user-guide/analytics>              |
+                    |                                                                     |
+                    +---------------------------------------------------------------------+
+
+                    What's next?
+                    ------------
+                    - Check out the documentation: <https://dvc.org/doc>
+                    - Get help and share ideas: <https://dvc.org/chat>
+                    - Star us on GitHub: <https://github.com/treeverse/dvc>
+
+        - Add remote for dvc 
+            dvc remote add -d dataremote s3://exploremlops-dvc-repo-bucket/diabetes-dataset/
+            * -d represents default
+            
+            lanosrep-ai-ml-ops $ dvc remote add -d dataremote s3://exploremlops-dvc-repo-bucket/diabetes-dataset/
+                Setting 'dataremote' as a default remote.
+            
+            lanosrep-ai-ml-ops $ dvc add concepts/DVC/dataset/diabetes.csv 
+                ERROR: bad DVC file name 'concepts/DVC/dataset/diabetes.csv.dvc' is git-ignored.
+
+            lanosrep-ai-ml-ops $ dvc add concepts/DVC/dataset/diabetes.csv 
+                100% Adding...|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|1/1 [00:00,  7.56file/s]
+                                                                                                                                                                                                                                                                
+                To track the changes with git, run:
+
+                        git add concepts/DVC/dataset/diabetes.csv.dvc
+
+                To enable auto staging, run:
+
+                        dvc config core.autostage true
+
+            lanosrep-ai-ml-ops $ git add concepts/DVC/dataset/diabetes.csv.dvc
+
+            lanosrep-ai-ml-ops $ dvc commit concepts/DVC/dataset/diabetes.csv
+
+            lanosrep-ai-ml-ops $ dvc status                                                                                                                                                                                                                 
+                Data and pipelines are up to date.
+
+
+            lanosrep-ai-ml-ops $ dvc push 
+                Collecting                                                                                                                                                                                                            |1.00 [00:00,  608entry/s]
+                Pushing
+                ERROR: unexpected error - Unable to locate credentials                                                                                                                                                                                          
+
+                Having any troubles? Hit us up at https://dvc.org/support, we are always happy to help!
+
+            Configured aws cli on the terminal 
+
+            lanosrep-ai-ml-ops $ dvc push 
+                Collecting                                                                                                                                                                                                            |0.00 [00:00,    ?entry/s]
+                Pushing
+                1 file pushed  
+
+            lanosrep-ai-ml-ops $ cat .dvc/config 
+                [core]
+                    remote = dataremote
+                ['remote "dataremote"']
+                    url = s3://exploremlops-dvc-repo-bucket/diabetes-dataset/
+                        
