@@ -1,0 +1,6 @@
+# Resources: https://mlflow.org/docs/latest/ml/tracking/quickstart/
+
+Local Installation of MLFlow
+
+    Using pip:
+        
